@@ -47,10 +47,26 @@ class Encrypter:
         list_of_passwords parameter is an array of passwords ready to be encrypted
         '''
 
+        encrypted_passwords = []
+
+        for p in list_of_passwords:
+            c_p = Encrypter.caesar(p)
+            s_p = Encrypter.substitution(c_p)
+            encrypted_passwords.append(s_p)
+
+        return encrypted_passwords
+
+
     @classmethod
-    def caesar(phrase):
+    def caesar(cls, phrase):
         '''
         The method is responsible for calling the Caesar Cipher on the given phrase parameter
+        '''
+
+    @classmethod
+    def substitution(cls, phrase):
+        '''
+        The method is responsible for invoking the substitution cipher for the given phrase parameter
         '''
 
 
@@ -70,5 +86,13 @@ class Decrypter:
 class StreamReader:
 
     def __init__(self):
-        passwords_readed = []
-        passwords_ready_to_save = []
+        _passwords_readed = []
+        _passwords_ready_to_save = []
+
+    def save_passwords(list_of_passwords):
+        '''
+        '''
+
+    def read_passwords(list_of_passwords):
+        '''
+        '''
