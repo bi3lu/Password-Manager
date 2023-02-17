@@ -1,4 +1,6 @@
 import random
+import datetime
+import time
 from random_word import RandomWords
 
 
@@ -48,5 +50,25 @@ class Encrypter:
     @classmethod
     def caesar(phrase):
         '''
-        The method is responsible for calling the Caesar cipher on the given phrase parameter
+        The method is responsible for calling the Caesar Cipher on the given phrase parameter
         '''
+
+
+class Decrypter:
+
+    @staticmethod
+    def decrypt(list_of_passwords):
+        '''
+        '''
+
+    @classmethod
+    def reverse_caesar(phrase):
+        '''
+        '''
+
+
+class StreamReader:
+
+    def __init__(self):
+        passwords_readed = []
+        passwords_ready_to_save = []
