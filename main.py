@@ -21,6 +21,7 @@ class Generator:
     def generate_word_password(k=_read_config_kwords("kwords"), has_nums=_read_config_kwords("nums")):
         '''
         Method generates a random k-words "word password" using random_word lib
+        has_nums is bool value which is responsible for the instructions for adding letters to a word
         output_password is str var in which our password is creating
         i int var is counter in while loop
         '''
@@ -32,13 +33,18 @@ class Generator:
         while True:
             random_word = r.get_random_word()
             temp_word = str(random_word).capitalize()
-            m = random.randint(0, 2)
 
-            if m == 1:
-                temp_word += str(random.randint(0, 9))
+            if has_nums:
+                m = random.randint(0, 2)
 
-            output_password += temp_word
-            i += 1
+                if m == 1:
+                    temp_word += str(random.randint(0, 9))
+
+                output_password += temp_word
+                i += 1
+            else:
+                output_password += temp_word
+                i += 1
 
             if i == k:
                 break
@@ -105,5 +111,3 @@ class StreamReader:
     def read_passwords(list_of_passwords):
         '''
         '''
-
-print(Generator.generate_word_password())
