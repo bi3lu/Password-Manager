@@ -1,9 +1,25 @@
 import random
 import datetime
-import time
 import json
 from random_word import RandomWords
 
+class Logger:
+    '''
+    '''
+
+    def log(logged_action):
+        '''
+        '''
+        def wrapper_log(func):
+            def wrapper():
+                with open("logs.txt", "a") as f:
+                    f.write(f"Action: {logged_action} executed on {datetime.datetime.now()}\n")
+
+                return func()
+
+            return wrapper
+
+        return wrapper_log
 
 class Generator:
 
@@ -18,6 +34,7 @@ class Generator:
         return output
 
     @staticmethod
+    @Logger.log("PASSWORD_GENERATED")
     def generate_word_password(k=_read_config_kwords("kwords"), has_nums=_read_config_kwords("nums")):
         '''
         Method generates a random k-words "word password" using random_word lib
@@ -57,6 +74,7 @@ class Generator:
 class Encrypter:
 
     @staticmethod
+    @Logger.log("PASSWORDS_ENCRYPTED")
     def encrypt(list_of_passwords):
         '''
         The method is responsible for simple encryption of the password list
@@ -88,12 +106,13 @@ class Encrypter:
 class Decrypter:
 
     @staticmethod
+    @Logger.log("PASSWORDS_DECRYPTED")
     def decrypt(list_of_passwords):
         '''
         '''
 
     @classmethod
-    def reverse_caesar(phrase):
+    def reverse_caesar(cls, phrase):
         '''
         '''
 
