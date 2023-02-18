@@ -7,22 +7,18 @@ from random_word import RandomWords
 
 class Generator:
 
-    def _read_config_nums():
+    def _read_config_kwords(n):
         '''
-        '''
-
-    def _read_config_kwords():
-        '''
-        The method is responsible for reading the kwords value from the json configuration file used to set the default k value in the generate_word_pssaword method
+        The method is responsible for reading the value from the json configuration file
         '''
         f = open("config.json")
         data = json.load(f)
-        output = data["generator"]["kwords"]
+        output = data["generator"][n]
 
         return output
 
     @staticmethod
-    def generate_word_password(k=_read_config_kwords()):
+    def generate_word_password(k=_read_config_kwords("kwords"), has_nums=_read_config_kwords("nums")):
         '''
         Method generates a random k-words "word password" using random_word lib
         output_password is str var in which our password is creating
@@ -109,3 +105,5 @@ class StreamReader:
     def read_passwords(list_of_passwords):
         '''
         '''
+
+print(Generator.generate_word_password())
