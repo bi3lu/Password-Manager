@@ -1,5 +1,6 @@
 {
     "generator": {
-        "kwords": 3
+        "kwords": 3,
+        "nums": true
     }
 }

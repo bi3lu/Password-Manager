@@ -7,7 +7,7 @@ from random_word import RandomWords
 
 class Generator:
 
-    def _read_config():
+    def _read_config_kwords():
         '''
         The method is responsible for reading the kwords value from the json configuration file used to set the default k value in the generate_word_pssaword method
         '''
@@ -18,7 +18,7 @@ class Generator:
         return output
 
     @staticmethod
-    def generate_word_password(k=_read_config()):
+    def generate_word_password(k=_read_config_kwords()):
         '''
         Method generates a random k-words "word password" using random_word lib
         output_password is str var in which our password is creating
