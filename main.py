@@ -7,6 +7,10 @@ from random_word import RandomWords
 
 class Generator:
 
+    def _read_config_nums():
+        '''
+        '''
+
     def _read_config_kwords():
         '''
         The method is responsible for reading the kwords value from the json configuration file used to set the default k value in the generate_word_pssaword method
